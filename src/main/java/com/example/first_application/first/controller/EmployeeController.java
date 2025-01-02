@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.first_application.first.entities.Employee;
 import com.example.first_application.first.service.EmployeeService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class EmployeeController {
@@ -55,4 +57,17 @@ public class EmployeeController {
         this.employeeService.deleteEmployeeById(id);
         return "redirect:/";
     }
+    @GetMapping("/getEmployee")
+    public String getEmployee(@RequestParam(value = "id") long id, Model model) {
+        Employee employee = employeeService.getEmployeeById(id);
+        model.addAttribute("employee", employee);
+        return "search_employee";
+    }
+
+    @GetMapping("/searchEmployee")
+    public String searchEmployeeForm(Model model) {
+        model.addAttribute("employee", new Employee());
+        return "search_employee";
+    }
+    
 }

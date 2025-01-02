@@ -1,11 +1,9 @@
+// filepath: /home/tejaniduram/Desktop/first/src/main/java/com/example/first_application/first/repository/EmployeeRepository.java
 package com.example.first_application.first.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.first_application.first.entities.Employee;
-
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Long>{
-
+public interface EmployeeRepository extends JpaRepository<com.example.first_application.first.entities.Employee, Long> {
 }
